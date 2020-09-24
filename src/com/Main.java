@@ -16,7 +16,6 @@ public class Main
         if (f.exists())
         {
 
-            //char[] newdel1 = newdel.toCharArray();
 
             try
             {
@@ -47,17 +46,6 @@ public class Main
                     for(int i = 0; i < chars.length; i++) //i = 0 -> \uFEFF
                     {
                         counter = 0;
-
-//                        if(chars[i] == '\uFEFF')
-//                            counter = 0;
-//                        {
-//
-//                        }
-//                            i++;
-//                        else
-//                            continue;
-
-
 
                         if(chars[i] == '\uFEFF')
                         {
@@ -103,13 +91,17 @@ public class Main
 
                         }
                         else {
-                            if (chars[i] == '”' || chars[i] == '“' || chars[i] == '"')
+                            if(chars[i] == '“') //chars[i] == '“' || chars[i] == '”' ||
                             {
                                 i++;
-                                while (i < chars.length && chars[i] != '”' || i < chars.length && chars[i] != '“' || i < chars.length && chars[i] != '"') //i < chars.length ||
+                                while(i < chars.length) //i < chars.length ||
                                 {
+                                    if(chars[i] == '”')
+                                        break;
+
                                     counter++;
                                     i++;
+
                                 }
                                 res = Integer.toString(counter);
                                 fw.write(res);
@@ -119,6 +111,7 @@ public class Main
                                 else
                                     fw.write("\n");
                             }
+
                             else
                                 {
                                 while (i < chars.length && chars[i] != del1[0]) {
