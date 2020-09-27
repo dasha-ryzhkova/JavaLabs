@@ -1,8 +1,7 @@
 package com;
 import java.util.Scanner;
-//import java.io.File;
 import java.io.*;
-//import java.io.FileWriter;
+
 
 public class Main
 {
@@ -50,12 +49,12 @@ public class Main
                         if(chars[i] == '\uFEFF')
                         {
                             i++;
-                            if(chars[i] == '“') //chars[i] == '“' || chars[i] == '”' ||
+                            if(chars[i] == '"') //chars[i] == '“' || chars[i] == '”' ||
                             {
                                 i++;
                                 while(i < chars.length) //i < chars.length ||
                                 {
-                                    if(chars[i] == '”')
+                                    if(chars[i] == '"')
                                         break;
 
                                     counter++;
@@ -81,28 +80,28 @@ public class Main
                                 }
                                 res = Integer.toString(counter);
                                 fw.write(res);
+
                                 if (i < chars.length - 1) //последний символ \n
-                                {
                                     fw.write(newdel);
-                                }
                                 else
                                     fw.write("\n");
                             }
 
                         }
                         else {
-                            if(chars[i] == '“') //chars[i] == '“' || chars[i] == '”' ||
+                            if(chars[i] == '"') //chars[i] == '“' || chars[i] == '”' ||
                             {
                                 i++;
                                 while(i < chars.length) //i < chars.length ||
                                 {
-                                    if(chars[i] == '”')
+                                    if(chars[i] == '"')
                                         break;
 
                                     counter++;
                                     i++;
 
                                 }
+
                                 res = Integer.toString(counter);
                                 fw.write(res);
 
@@ -120,13 +119,13 @@ public class Main
                                     counter++;
                                     i++;
                                 }
-                                res = Integer.toString(counter);
-                                fw.write(res);
-                                if (i < chars.length - 1) //последний символ \n
-                                {
-                                    fw.write(newdel);
-                                } else
-                                    fw.write("\n");
+                                    res = Integer.toString(counter);
+                                    fw.write(res);
+
+                                    if (i < chars.length - 1) //последний символ \n
+                                        fw.write(newdel);
+                                    else
+                                        fw.write("\n");
                             }
                         }
 
