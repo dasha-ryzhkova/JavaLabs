@@ -61,11 +61,19 @@ public class Main
                                     i++;
 
                                 }
-                                res = Integer.toString(counter);
+                                if(counter != 0)
+                                    res = Integer.toString(counter);
+                                else
+                                    res = "";
+
+
                                 fw.write(res);
 
-                                if (i < chars.length - 1) //последний символ \n
-                                    fw.write(newdel);
+                                if (i < chars.length - 1)
+                                    if(res != "")
+                                        fw.write(newdel);
+                                    else
+                                        continue;
                                 else
                                     fw.write("\n");
                             }
@@ -78,11 +86,17 @@ public class Main
                                     counter++;
                                     i++;
                                 }
-                                res = Integer.toString(counter);
+                                if(counter != 0)
+                                    res = Integer.toString(counter);
+                                else
+                                    res = "";
                                 fw.write(res);
 
-                                if (i < chars.length - 1) //последний символ \n
-                                    fw.write(newdel);
+                                if (i < chars.length - 1)
+                                    if(res != "")
+                                        fw.write(newdel);
+                                    else
+                                        continue;
                                 else
                                     fw.write("\n");
                             }
@@ -102,30 +116,42 @@ public class Main
 
                                 }
 
-                                res = Integer.toString(counter);
+                                if(counter != 0)
+                                    res = Integer.toString(counter);
+                                else
+                                    res = "";
                                 fw.write(res);
 
-                                if (i < chars.length - 1) //последний символ \n
-                                    fw.write(newdel);
+                                if (i < chars.length - 1)
+                                    if(res != "")
+                                        fw.write(newdel);
+                                    else
+                                        continue;
                                 else
                                     fw.write("\n");
                             }
 
                             else
-                                {
+                            {
                                 while (i < chars.length && chars[i] != del1[0]) {
                                     if (chars[i] == '\uFEFF')
                                         i++;
                                     counter++;
                                     i++;
                                 }
+                                if(counter != 0)
                                     res = Integer.toString(counter);
-                                    fw.write(res);
+                                else
+                                    res = "";
+                                fw.write(res);
 
-                                    if (i < chars.length - 1) //последний символ \n
+                                if (i < chars.length - 1)
+                                    if(res != "")
                                         fw.write(newdel);
                                     else
-                                        fw.write("\n");
+                                        continue;
+                                else
+                                    fw.write("\n");
                             }
                         }
 
@@ -135,11 +161,11 @@ public class Main
                 fr.close();
                 sc.close();
                 fw.close();
-        }
+            }
             catch (IOException e){
                 e.printStackTrace();
             }
-    }
+        }
         else
             System.out.println("File does not exist.\n");
 
