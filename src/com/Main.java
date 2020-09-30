@@ -61,19 +61,10 @@ public class Main
                                     i++;
 
                                 }
-                                if(counter != 0)
-                                    res = Integer.toString(counter);
-                                else
-                                    res = "";
-
-
+                                res = Integer.toString(counter);
                                 fw.write(res);
-
                                 if (i < chars.length - 1)
-                                    if(res != "")
-                                        fw.write(newdel);
-                                    else
-                                        continue;
+                                    fw.write(newdel);
                                 else
                                     fw.write("\n");
                             }
@@ -86,17 +77,10 @@ public class Main
                                     counter++;
                                     i++;
                                 }
-                                if(counter != 0)
-                                    res = Integer.toString(counter);
-                                else
-                                    res = "";
+                                res = Integer.toString(counter);
                                 fw.write(res);
-
                                 if (i < chars.length - 1)
-                                    if(res != "")
-                                        fw.write(newdel);
-                                    else
-                                        continue;
+                                    fw.write(newdel);
                                 else
                                     fw.write("\n");
                             }
@@ -116,17 +100,10 @@ public class Main
 
                                 }
 
-                                if(counter != 0)
-                                    res = Integer.toString(counter);
-                                else
-                                    res = "";
+                                res = Integer.toString(counter);
                                 fw.write(res);
-
                                 if (i < chars.length - 1)
-                                    if(res != "")
-                                        fw.write(newdel);
-                                    else
-                                        continue;
+                                    fw.write(newdel);
                                 else
                                     fw.write("\n");
                             }
@@ -139,17 +116,10 @@ public class Main
                                     counter++;
                                     i++;
                                 }
-                                if(counter != 0)
-                                    res = Integer.toString(counter);
-                                else
-                                    res = "";
+                                res = Integer.toString(counter);
                                 fw.write(res);
-
                                 if (i < chars.length - 1)
-                                    if(res != "")
-                                        fw.write(newdel);
-                                    else
-                                        continue;
+                                    fw.write(newdel);
                                 else
                                     fw.write("\n");
                             }
