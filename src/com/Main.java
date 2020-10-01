@@ -1,3 +1,4 @@
+
 package com;
 import java.util.Scanner;
 import java.io.*;
@@ -36,95 +37,96 @@ public class Main
                 char[] chars;
                 int counter;
                 String res;
+                String del2 = "\"";
+                char par =  del2.charAt(0);
+                String nline;
 
 
                 while (sc.hasNextLine())
                 {
                     line = sc.nextLine();
                     chars = line.toCharArray();
-                    for(int i = 0; i < chars.length; i++) //i = 0 -> \uFEFF
+
                     {
-                        counter = 0;
-
-                        if(chars[i] == '\uFEFF')
+                        for (int i = 0; i < chars.length; i++)
                         {
-                            i++;
-                            if(chars[i] == '"') //chars[i] == '“' || chars[i] == '”' ||
-                            {
+                            counter = 0;
+
+                            if (chars[i] == '\uFEFF') {
                                 i++;
-                                while(i < chars.length) //i < chars.length ||
+                                if (chars[i] == '"')
                                 {
-                                    if(chars[i] == '"')
-                                        break;
-
-                                    counter++;
                                     i++;
+                                    while (i < chars.length)
+                                    {
+                                        if (i != chars.length - 1 && chars[i] == '"' && chars[i + 1] == del1[0])
+                                            break;
+                                        //else if(|| i == line.length() - 1 && chars[i] == '"')
 
-                                }
-                                res = Integer.toString(counter);
-                                fw.write(res);
-                                if (i < chars.length - 1)
-                                    fw.write(newdel);
-                                else
-                                    fw.write("\n");
-                            }
-                            else
-                            {
-                                while(i < chars.length  && chars[i] != del1[0] && chars[i] != '"')
-                                {
-                                    if(chars[i] == '\uFEFF')
+                                        counter++;
                                         i++;
-                                    counter++;
-                                    i++;
+
+                                    }
+                                    res = Integer.toString(counter);
+                                    fw.write(res);
+                                    if (i < chars.length - 1)
+                                        fw.write(newdel);
+                                    else
+                                        fw.write("\n");
                                 }
-                                res = Integer.toString(counter);
-                                fw.write(res);
-                                if (i < chars.length - 1)
-                                    fw.write(newdel);
-                                else
-                                    fw.write("\n");
+                                else {
+                                    while (i < chars.length && chars[i] != del1[0] && chars[i] != '"') {
+                                        if (chars[i] == '\uFEFF')
+                                            i++;
+                                        counter++;
+                                        i++;
+                                    }
+                                    res = Integer.toString(counter);
+                                    fw.write(res);
+                                    if (i < chars.length - 1)
+                                        fw.write(newdel);
+                                    else
+                                        fw.write("\n");
+                                }
+
+                            }
+                            else {
+                                if (chars[i] == '"')
+                                {
+                                    i++;
+                                    while (i < chars.length)
+                                    {
+                                        if (i != chars.length - 1 && chars[i] == '"' && chars[i + 1] == del1[0] || i == line.length() - 1 && chars[i] == '"')
+                                            break;
+
+                                        counter++;
+                                        i++;
+
+                                    }
+
+                                    res = Integer.toString(counter);
+                                    fw.write(res);
+                                    if (i < chars.length - 1)
+                                        fw.write(newdel);
+                                    else
+                                        fw.write("\n");
+                                } else {
+                                    while (i < chars.length && chars[i] != del1[0]) {
+                                        if (chars[i] == '\uFEFF')
+                                            i++;
+                                        counter++;
+                                        i++;
+                                    }
+                                    res = Integer.toString(counter);
+                                    fw.write(res);
+                                    if (i < chars.length - 1)
+                                        fw.write(newdel);
+                                    else
+                                        fw.write("\n");
+                                }
                             }
 
                         }
-                        else {
-                            if(chars[i] == '"') //chars[i] == '“' || chars[i] == '”' ||
-                            {
-                                i++;
-                                while(i < chars.length) //i < chars.length ||
-                                {
-                                    if(chars[i] == '"')
-                                        break;
-
-                                    counter++;
-                                    i++;
-
-                                }
-
-                                res = Integer.toString(counter);
-                                fw.write(res);
-                                if (i < chars.length - 1)
-                                    fw.write(newdel);
-                                else
-                                    fw.write("\n");
-                            }
-
-                            else
-                            {
-                                while (i < chars.length && chars[i] != del1[0]) {
-                                    if (chars[i] == '\uFEFF')
-                                        i++;
-                                    counter++;
-                                    i++;
-                                }
-                                res = Integer.toString(counter);
-                                fw.write(res);
-                                if (i < chars.length - 1)
-                                    fw.write(newdel);
-                                else
-                                    fw.write("\n");
-                            }
-                        }
-
                     }
                 }
 
@@ -144,3 +146,5 @@ public class Main
 }
 // C:\Users\VivoBook\Desktop\lab1.csv
 // C:\Users\VivoBook\Desktop\result.txt
+
+
