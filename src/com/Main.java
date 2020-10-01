@@ -61,7 +61,7 @@ public class Main
                                     {
                                         if (i != chars.length - 1 && chars[i] == '"' && chars[i + 1] == del1[0])
                                             break;
-                                        //else if(|| i == line.length() - 1 && chars[i] == '"')
+
 
                                         counter++;
                                         i++;
