@@ -6,137 +6,29 @@ import java.io.*;
 
 public class Main
 {
-    public static void main(String[] args)
+
+
+    public static void main(String[] args)throws IOException
     {
         Scanner scanner = new Scanner (System.in);
 
         System.out.println("Enter file path:");
-        String path = scanner.next();
+        String path = new String("C:\\Users\\VivoBook\\Desktop\\lab1.csv");
         File f = new File(path);
         if (f.exists())
         {
+            System.out.println("Enter delimiter:");
+            char del = ',';
 
+            System.out.println("Enter new delimiter:");
+            char newdel = '+';
 
-            try
-            {
-                System.out.println("Enter delimiter:");
-                String del = scanner.next();
+            System.out.println("Enter path for new file:");
+            String newpath = new String("C:\\Users\\VivoBook\\Desktop\\result.txt");
 
-                System.out.println("Enter new delimiter:");
-                String newdel = scanner.next();
+            Task task = new Task(del, newdel);
+            task.file(path,newpath);
 
-                System.out.println("Enter path for new file:");
-                String newpath = scanner.next();
-
-                char[] del1 = del.toCharArray();
-                FileReader fr = new FileReader(path);
-                Scanner sc = new Scanner(fr);
-                FileWriter fw = new FileWriter(newpath);
-
-                String line;
-                char[] chars;
-                int counter;
-                String res;
-                String del2 = "\"";
-                char par =  del2.charAt(0);
-                String nline;
-
-
-                while (sc.hasNextLine())
-                {
-                    line = sc.nextLine();
-                    chars = line.toCharArray();
-
-                    {
-                        for (int i = 0; i < chars.length; i++)
-                        {
-                            counter = 0;
-
-                            if (chars[i] == '\uFEFF') {
-                                i++;
-                                if (chars[i] == '"')
-                                {
-                                    i++;
-                                    while (i < chars.length)
-                                    {
-                                        if (i != chars.length - 1 && chars[i] == '"' && chars[i + 1] == del1[0])
-                                            break;
-
-
-                                        counter++;
-                                        i++;
-
-                                    }
-                                    res = Integer.toString(counter);
-                                    fw.write(res);
-                                    if (i < chars.length - 1)
-                                        fw.write(newdel);
-                                    else
-                                        fw.write("\n");
-                                }
-                                else {
-                                    while (i < chars.length && chars[i] != del1[0] && chars[i] != '"') {
-                                        if (chars[i] == '\uFEFF')
-                                            i++;
-                                        counter++;
-                                        i++;
-                                    }
-                                    res = Integer.toString(counter);
-                                    fw.write(res);
-                                    if (i < chars.length - 1)
-                                        fw.write(newdel);
-                                    else
-                                        fw.write("\n");
-                                }
-
-                            }
-                            else {
-                                if (chars[i] == '"')
-                                {
-                                    i++;
-                                    while (i < chars.length)
-                                    {
-                                        if (i != chars.length - 1 && chars[i] == '"' && chars[i + 1] == del1[0] || i == line.length() - 1 && chars[i] == '"')
-                                            break;
-
-                                        counter++;
-                                        i++;
-
-                                    }
-
-                                    res = Integer.toString(counter);
-                                    fw.write(res);
-                                    if (i < chars.length - 1)
-                                        fw.write(newdel);
-                                    else
-                                        fw.write("\n");
-                                } else {
-                                    while (i < chars.length && chars[i] != del1[0]) {
-                                        if (chars[i] == '\uFEFF')
-                                            i++;
-                                        counter++;
-                                        i++;
-                                    }
-                                    res = Integer.toString(counter);
-                                    fw.write(res);
-                                    if (i < chars.length - 1)
-                                        fw.write(newdel);
-                                    else
-                                        fw.write("\n");
-                                }
-                            }
-
-                        }
-                    }
-                }
-
-                fr.close();
-                sc.close();
-                fw.close();
-            }
-            catch (IOException e){
-                e.printStackTrace();
-            }
         }
         else
             System.out.println("File does not exist.\n");
