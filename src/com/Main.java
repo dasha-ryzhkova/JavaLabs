@@ -24,10 +24,12 @@ public class Main
             char newdel = '+';
 
             System.out.println("Enter path for new file:");
-            String newpath = new String("C:\\Users\\VivoBook\\Desktop\\result.txt");
+            String newpath = new String("C:\\Users\\VivoBook\\Desktop\\result.txt");   //scanner.next().CharAt();
 
-            Task task = new Task(del, newdel);
-            task.file(path,newpath);
+//            Task task = new Task(del, newdel);
+//            task.file(path,newpath);
+            CSVParser parser = new CSVParser(path, newpath, del, '"', newdel);
+            parser.readCSVFile();
 
         }
         else
