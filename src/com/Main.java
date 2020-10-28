@@ -13,21 +13,21 @@ public class Main
         Scanner scanner = new Scanner (System.in);
 
         System.out.println("Enter file path:");
-        String path = new String("C:\\Users\\VivoBook\\Desktop\\lab1.csv");
+        String path = scanner.next();;
         File f = new File(path);
         if (f.exists())
         {
             System.out.println("Enter delimiter:");
-            char del = ',';
+            String del1 = scanner.next();
 
             System.out.println("Enter new delimiter:");
-            char newdel = '+';
+            String newdel1 = scanner.next();
 
             System.out.println("Enter path for new file:");
-            String newpath = new String("C:\\Users\\VivoBook\\Desktop\\result.txt");   //scanner.next().CharAt();
+            String newpath = scanner.next();;
+            char del = del1.charAt(0);
+            char newdel = newdel1.charAt(0);
 
-//            Task task = new Task(del, newdel);
-//            task.file(path,newpath);
             CSVParser parser = new CSVParser(path, newpath, del, '"', newdel);
             parser.readCSVFile();
 

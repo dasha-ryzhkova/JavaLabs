@@ -50,13 +50,10 @@ public class CSVParser {
                 for (int i = 0; i < l.size(); i++) {
                     if (i < l.size() - 1) {
                         writer.write(l.get(i).length() + "" + newdel);
-                        //System.out.print(l.get(i).length() + "" + newdel);
                     } else {
-                        //System.out.print(l.get(i).length());
                         writer.write(l.get(i).length() + "\n");
                     }
                 }
-                //System.out.println();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -127,65 +124,4 @@ public class CSVParser {
         return result;
     }
 
-//    public String extractWordFromLine(String line) {
-//        int i = 0;
-//        String word = "";
-//        if (line.charAt(0) == combiner) {
-//            while (!(line.charAt(i) == delimiter &&  line.charAt(i - 1) == combiner )) {
-//                if(line.charAt(i) == '\uFEFF'){
-//                    i++;
-//                }
-//                //if (line.charAt(i) != combiner ){
-//                    word += line.charAt(i);
-//                //}
-//                i++;
-//                if (i == line.length()) {
-//                    break;
-//                }
-//            }
-//            //i++;
-//            word = deleteQuotes(word);
-//
-//            wordsOfLine.add(word);
-//            i++;
-//            if (i < line.length()) {
-//                line = line.substring(i);
-//            } else {
-//                line = "";
-//            }
-//            return line;
-//        } else {
-//            do {
-//                if(line.charAt(i) == '\uFEFF'){
-//                    i++;
-//                }
-//                //if (line.charAt(i) != combiner){
-//                    word += line.charAt(i);
-//               // }
-//                i++;
-//                if (i == line.length()) {
-//                    i++;
-//                    break;
-//                }
-//            } while (line.charAt(i) != delimiter);
-//            word = deleteQuotes(word);
-//            wordsOfLine.add(word);
-//            i++;
-//            if (i < line.length()) {
-//                line = line.substring(i);
-//            } else {
-//                line = "";
-//            }
-//        }
-//        return line;
-//    }
-//
-//
-//    public String deleteQuotes(String str) {
-//        String result = str;
-//        while (result.length() > 1 && result.charAt(0) == combiner && result.charAt(result.length() - 1) == combiner) {
-//            result = result.substring(1, result.length() - 1);
-//        }
-//        return result;
-//    }
 }
